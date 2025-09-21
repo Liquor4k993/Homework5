@@ -46,5 +46,22 @@ public class Main {
         } else {
             System.out.println(year + " год не является високосным");
         }
+
+        System.out.println("\nЗадание 4");
+        //Доставка карт
+        int deliveryDistance = 95;
+        int deliveryDays = 1; // минимальный срок доставки
+
+        if (deliveryDistance > 100) {
+            System.out.println("Доставки нет");
+        } else {
+            if (deliveryDistance > 20) {
+                deliveryDays++;
+            }
+            if (deliveryDistance > 60) {
+                deliveryDays++;
+            }
+            System.out.println("Потребуется дней: " + deliveryDays);
+        }
     }
 }
