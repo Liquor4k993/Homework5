@@ -63,5 +63,33 @@ public class Main {
             }
             System.out.println("Потребуется дней: " + deliveryDays);
         }
+        System.out.println("\nЗадание 5");
+        //Определение сезона по месяцу
+        int monthNumber = 7;
+
+        switch (monthNumber) {
+            case 12:
+            case 1:
+            case 2:
+                System.out.println("Месяц " + monthNumber + " принадлежит сезону зима");
+                break;
+            case 3:
+            case 4:
+            case 5:
+                System.out.println("Месяц " + monthNumber + " принадлежит сезону весна");
+                break;
+            case 6:
+            case 7:
+            case 8:
+                System.out.println("Месяц " + monthNumber + " принадлежит сезону лето");
+                break;
+            case 9:
+            case 10:
+            case 11:
+                System.out.println("Месяц " + monthNumber + " принадлежит сезону осень");
+                break;
+            default:
+                System.out.println("Некорректный номер месяца: " + monthNumber);
+        }
     }
 }
