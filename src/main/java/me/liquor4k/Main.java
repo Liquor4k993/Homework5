@@ -34,5 +34,17 @@ public class Main {
         } else {
             System.out.println("Неизвестная операционная система");
         }
+
+        System.out.println("\nЗадание 3");
+        //Високосный год
+        int year = 2024;
+
+        if (year <= 1584) {
+            System.out.println(year + " год: високосные годы были введены после 1584 года");
+        } else if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) {
+            System.out.println(year + " год является високосным");
+        } else {
+            System.out.println(year + " год не является високосным");
+        }
     }
 }
