@@ -8,10 +8,8 @@ public class Main {
 
         if (clientOS == 0) {
             System.out.println("Установите версию приложения для iOS по ссылке");
-        } else if (clientOS == 1) {
-            System.out.println("Установите версию приложения для Android по ссылке");
         } else {
-            System.out.println("Неизвестная операционная система");
+            System.out.println("Установите версию приложения для Android по ссылке");
         }
 
         System.out.println("\nЗадание 2");
@@ -19,29 +17,27 @@ public class Main {
         int clientOS2 = 1; // 0 - iOS, 1 - Android
         int clientDeviceYear = 2015;
 
-        if (clientOS2 == 0) {
-            if (clientDeviceYear < 2015) {
-                System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-            } else {
-                System.out.println("Установите версию приложения для iOS по ссылке");
-            }
-        } else if (clientOS2 == 1) {
-            if (clientDeviceYear < 2015) {
-                System.out.println("Установите облегченную версию приложения для Android по ссылке");
-            } else {
-                System.out.println("Установите версию приложения для Android по ссылке");
-            }
+        boolean isOldDevice = clientDeviceYear < 2017;
+
+        if (clientOS2 == 0 && isOldDevice) {
+            System.out.println("Установите облегченную версию приложения для iOS по ссылке");
+        } else if (clientOS2 == 0) {
+            System.out.println("Установите версию приложения для iOS по ссылке");
+        } else if (clientOS2 == 1 && isOldDevice) {
+            System.out.println("Установите облегченную версию приложения для Android по ссылке");
         } else {
-            System.out.println("Неизвестная операционная система");
+            System.out.println("Установите версию приложения для Android по ссылке");
         }
 
         System.out.println("\nЗадание 3");
         //Високосный год
         int year = 2024;
 
+        boolean isLeapYear = (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);
+
         if (year <= 1584) {
             System.out.println(year + " год: високосные годы были введены после 1584 года");
-        } else if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) {
+        } else if (isLeapYear) {
             System.out.println(year + " год является високосным");
         } else {
             System.out.println(year + " год не является високосным");
@@ -54,13 +50,13 @@ public class Main {
 
         if (deliveryDistance > 100) {
             System.out.println("Доставки нет");
+        } else if (deliveryDistance > 60) {
+            deliveryDays += 2; // +1 за интервал 20-60 и +1 за интервал 60-100
+            System.out.println("Потребуется дней: " + deliveryDays);
+        } else if (deliveryDistance > 20) {
+            deliveryDays += 1; // +1 за интервал 20-60
+            System.out.println("Потребуется дней: " + deliveryDays);
         } else {
-            if (deliveryDistance > 20) {
-                deliveryDays++;
-            }
-            if (deliveryDistance > 60) {
-                deliveryDays++;
-            }
             System.out.println("Потребуется дней: " + deliveryDays);
         }
         System.out.println("\nЗадание 5");
